@@ -1,0 +1,37 @@
+[Usuario|
+  + id: ID;
+  + nombre: String;
+  + apellidoMaterno: String;
+  + apellidoPaterno: String;
+  + comunidad: String;
+  + carrera: String;
+  + multaPcPuma: Date;
+  + multaRed: Date;
+  + contrasena: String
+]
+[Reporte|
+  + id: ID;
+  + descripcion: String;
+  + parte: String
+]
+[Equipo|
+  + id: Id
+  + numeroSerie: String;
+  + numeroInventario: String;
+  + activo: Boolean;
+  + sobrenombre: Number;
+  + carrito: Number
+]
+[Prestamo|
+  + id: ID;
+  + fechaInicio: Date;
+  + fechaFin: Date;
+  + activo: Boolean
+  + usuario: <Usuario>;
+  + equipo: <Equipo>;
+  + reporte: <Reporte>
+]
+
+[Usuario]+-[Prestamo]
+[Reporte]+-[Prestamo]
+[Equipo]+-[Prestamo]

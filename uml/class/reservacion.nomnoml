@@ -1,0 +1,39 @@
+[Usuario|
+  + id: ID;
+  + nombre: String;
+  + apellidoMaterno: String;
+  + apellidoPaterno: String;
+  + comunidad: String;
+  + carrera: String;
+  + multaPcPuma: Date;
+  + multaRed: Date;
+  + contrasena: String
+]
+[Reporte|
+  + id: ID;
+  + descripcion: String;
+  + parte: String
+]
+[Carrito|
+  + id: ID;
+  + kiosko: Number;
+  + tipo: String;
+  + reservado: Date;
+  + activo: Boolean
+]
+
+[Reservacion|
+  + id: ID;
+  + fechaInicio: Date;
+  + fechaFin: Date;
+  + activo: Boolean;
+  + cancelado: Boolean;
+  + lugar: String;
+  + usuario: <Usuario>;
+  + carrito: <Carrito>;
+  + reporte: <Reporte>
+]
+
+[Usuario]+-[Reservacion]
+[Carrito]+-[Reservacion]
+[Reporte]+-[Reservacion]
